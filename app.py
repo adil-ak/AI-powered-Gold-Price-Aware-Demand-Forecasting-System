@@ -205,6 +205,10 @@ validate_required_cols_or_stop(gold, {"date", "gold_price_aed"}, "gold_price.csv
 
 # Parse dates robustly (stop & show bad rows if invalid)
 sales = parse_dates_or_stop(sales, "date", "sales.csv", dayfirst)
+
+# Drop rows where date is missing (optional auto-fix)
+sales = sales.dropna(subset=["date"])
+
 gold = parse_dates_or_stop(gold, "date", "gold_price.csv", dayfirst)
 
 # Clean category + units

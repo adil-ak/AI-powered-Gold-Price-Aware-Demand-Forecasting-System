@@ -58,8 +58,29 @@ def safe_rename(df: pd.DataFrame, mapping: dict) -> pd.DataFrame:
 
 def parse_dates_or_stop(df: pd.DataFrame, col: str, label: str, dayfirst_flag: bool) -> pd.DataFrame:
     df = df.copy()
-    df[col] = df[col].astype(str).str.strip()
+
+    # Treat common "empty" markers as missing
+    df[col] = df[col].replace(["None", "none", "NULL", "null", "", " "], np.nan)
+
+    # Convert to datetime
     df[col] = pd.to_datetime(df[col], errors="coerce", dayfirst=dayfirst_flag)
+
+    # If there are invalid dates, SHOW and DROP them (instead of stopping)
+    bad = df[df[col].isna()]
+    if len(bad) > 0:
+        st.warning(f"⚠️ {label}: Dropping {len(bad)} rows because '{col}' is missing/invalid.")
+        st.write("Sample dropped rows:")
+        st.dataframe(bad.head(20))
+
+        df = df.dropna(subset=[col])
+
+    # If everything got dropped, stop
+    if df.empty:
+        st.error(f"❌ {label}: No valid rows left after cleaning. Please fix the '{col}' column in your CSV.")
+        st.stop()
+
+    return df
+
 
     bad = df[df[col].isna()]
     if len(bad) > 0:

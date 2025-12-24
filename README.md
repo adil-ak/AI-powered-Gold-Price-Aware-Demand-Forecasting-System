@@ -11,7 +11,7 @@ This project forecasts weekly jewellery demand by category (22K, 24K, Diamonds, 
 
 ## Tech Stack
 - Python 3.11
-- pandas, 
+- pandas, numpy
 - XGBoost
 - Streamlit
 

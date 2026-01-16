@@ -51,7 +51,7 @@ def normalize_cols(df: pd.DataFrame) -> pd.DataFrame:
     return df
 
 def safe_rename(df: pd.DataFrame, mapping: dict) -> pd.DataFrame:
-    # mapping keys/values must be 
+    # mapping keys/values must be lowercase
     df = df.copy()
     df = df.rename(columns=mapping)
     return df

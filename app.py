@@ -59,7 +59,7 @@ def safe_rename(df: pd.DataFrame, mapping: dict) -> pd.DataFrame:
 def parse_dates_or_stop(df: pd.DataFrame, col: str, label: str, dayfirst_flag: bool) -> pd.DataFrame:
     df = df.copy()
 
-    # Treat common "empty" markers as 
+    # Treat common "empty" markers as missing
     df[col] = df[col].replace(["None", "none", "NULL", "null", "", " "], np.nan)
 
     # Convert to datetime

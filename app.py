@@ -65,7 +65,7 @@ def parse_dates_or_stop(df: pd.DataFrame, col: str, label: str, dayfirst_flag: b
     # Convert to datetime
     df[col] = pd.to_datetime(df[col], errors="coerce", dayfirst=dayfirst_flag)
 
-    # If there are invalid dates, SHOW and DROP them (instead of stopping)
+    # If there are invalid dates, SHOW and DROP them (instead of )
     bad = df[df[col].isna()]
     if len(bad) > 0:
         st.warning(f"⚠️ {label}: Dropping {len(bad)} rows because '{col}' is missing/invalid.")

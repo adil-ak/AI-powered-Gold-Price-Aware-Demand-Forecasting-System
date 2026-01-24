@@ -7,7 +7,7 @@ import numpy as np
 forecast = pd.read_csv("reports/weekly_forecast.csv", parse_dates=["week"])
 
 # -----------------------------
-# Business assumptions
+# Business 
 # -----------------------------
 LEAD_TIME_WEEKS = 2          # supplier lead time
 SERVICE_LEVEL_Z = 1.65       # ~95% service level

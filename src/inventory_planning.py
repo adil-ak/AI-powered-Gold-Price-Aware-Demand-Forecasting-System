@@ -13,7 +13,7 @@ LEAD_TIME_WEEKS = 2          # supplier lead time
 SERVICE_LEVEL_Z = 1.65       # ~95% service level
 
 # -----------------------------
-# Aggregate by category
+# Aggregate by 
 # -----------------------------
 plan = (
     forecast.groupby("category")

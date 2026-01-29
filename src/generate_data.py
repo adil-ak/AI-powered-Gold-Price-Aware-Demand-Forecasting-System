@@ -3,7 +3,7 @@ import numpy as np
 
 np.random.seed(42)
 
-# Generate daily dates
+# Generate daily 
 dates = pd.date_range(start="2022-01-01", end="2024-12-31", freq="D")
 
 # ---------------------------

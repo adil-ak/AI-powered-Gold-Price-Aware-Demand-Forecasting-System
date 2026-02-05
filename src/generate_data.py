@@ -7,7 +7,7 @@ np.random.seed(42)
 dates = pd.date_range(start="2022-01-01", end="2024-12-31", freq="D")
 
 # ---------------------------
-# Gold price (AED / )
+# Gold price (AED / gram)
 # ---------------------------
 gold_price = 200 + np.cumsum(np.random.normal(0, 0.6, len(dates)))
 

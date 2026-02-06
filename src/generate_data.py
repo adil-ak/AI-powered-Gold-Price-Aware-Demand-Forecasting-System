@@ -36,7 +36,7 @@ for cat in categories:
 sales_df = pd.DataFrame(rows, columns=["date", "category", "units_sold"])
 
 # ---------------------------
-# Save 
+# Save files
 # ---------------------------
 gold_df.to_csv("data/raw/gold_price.csv", index=False)
 sales_df.to_csv("data/raw/sales.csv", index=False)

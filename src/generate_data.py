@@ -17,6 +17,7 @@ gold_df = pd.DataFrame({
 })
 
 # ---------------------------
+# Sales data (units sold)
 # ---------------------------
 categories = ["22K", "24K", "DIAMONDS", "COINS"]
 rows = []

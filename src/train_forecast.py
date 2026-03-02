@@ -26,7 +26,7 @@ weekly = (
 )
 
 # -----------------------------
-# Feature 
+# Feature engineering
 # -----------------------------
 weekly = weekly.sort_values(["category", "week"])
 

@@ -12,7 +12,7 @@ gold = pd.read_csv("data/raw/gold_price.csv", parse_dates=["date"])
 df = sales.merge(gold, on="date")
 
 # -----------------------------
-#  aggregation
+# Weekly aggregation
 # -----------------------------
 df["week"] = df["date"].dt.to_period("W").apply(lambda r: r.start_time)
 

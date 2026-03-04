@@ -4,7 +4,7 @@ from xgboost import XGBRegressor
 from sklearn.metrics import mean_absolute_error
 
 # -----------------------------
-# Load 
+# Load data
 # -----------------------------
 sales = pd.read_csv("data/raw/sales.csv", parse_dates=["date"])
 gold = pd.read_csv("data/raw/gold_price.csv", parse_dates=["date"])
